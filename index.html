@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <title>Viki Shop</title>
 </head>
+<script>
+    function createFlower() {
+        const flower = document.createElement("div");
+        flower.textContent = "🌸";
+        flower.style.position = "fixed";
+        flower.style.top = "-50px";
+        flower.style.left = Math.random() * window.innerWidth + "px";
+        flower.style.fontSize = "2em";
+        flower.style.zIndex = "1000";
+        flower.style.transition = "transform 3s linear, opacity 1s ease-out";
+        document.body.appendChild(flower);
+
+        // Gjør blomsten fallende
+        setTimeout(() => {
+            flower.style.transform = `translateY(${window.innerHeight + 50}px)`;
+            flower.style.opacity = "0";
+        }, 100);
+
+        // Fjern blomsten når den når bunnen
+        setTimeout(() => {
+            flower.remove();
+        }, 3000);
+    }
+
+    // Lag blomster med jevne mellomrom
+    setInterval(createFlower, 500);
+</script>
 <body>
     
 
